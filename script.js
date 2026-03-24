@@ -12,6 +12,7 @@ const options =
 
 document.getElementById("todayDate").innerHTML =
   "Today is: " + today.toLocaleDateString("en-US", options);
+});
 
 function reviewData() 
 {
