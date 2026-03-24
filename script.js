@@ -33,7 +33,7 @@ document.getElementById("r_name").innerText = "Name: " +  first + " " + mi + "  
 
 document.getElementById("r_dob").innerText = "DOB: " + dob;
 
-document.getElementbyId("r_email").innerText = "Email: " + email;
+document.getElementById("r_email").innerText = "Email: " + email;
 
 document.getElementById("r_phone").innerText = "Phone: " + phone;
 
