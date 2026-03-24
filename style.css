@@ -134,5 +134,16 @@ tr
   font-size: 16px;
   padding: 5px 0;
 }
-
+#reviewBtn
+{
+  width: 100%;
+  font-size: 18px;
+  padding: 12px;
+  background-color: #48c4b7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
  
