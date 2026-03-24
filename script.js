@@ -16,7 +16,6 @@ document.getElementById("todayDate").innerHTML =
 
 function reviewData() 
 {
-  alert("running");
   
 let first = document.getElementById("firstname").value;
 let mi = document.getElementById("middleinitial").value;
