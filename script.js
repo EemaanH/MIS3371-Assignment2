@@ -31,19 +31,6 @@ let address1 = document.querySelector('[name="address1"]').value;
 let city = document.querySelector('[name="city"]').value;
 let state = document.querySelector('[name="state"]').value;
 let zip = document.querySelector('[name="zip"]').value;
- <tr>
-          <td colspan="6" align="center">
-            <input type="reset" value="CLEAR AND START OVER">
-
-            <br><br>
-            <!--Newly added Review button -->
-            <button type="button" id="reviewBtn" onclick="reviewData(); return false;">Review</button>
-
-            <br><br>
-            
-            <input type="submit" value="Submit">
-          </td>
-        </tr>
 
 document.getElementById("r_name").innerText = "Name: " +  first + " " + mi + "  " + last;
 
