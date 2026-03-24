@@ -351,12 +351,24 @@ Description:  basic Patient registration form (BETA)
           <td colspan="6" align="center">
             <input type="reset" value="CLEAR AND START OVER">
             &nbsp;&nbsp;&nbsp;
+            <!--Newly added Review button -->
+            <button type="button" onclick="reviewData()">Review</button>
+            &nbsp;&nbsp;&nbsp;
             <input type="submit" value="Submit">
           </td>
         </tr>
 
       </table>
     </form>
+    <!-- Newly added Review Section -->
+    <div id="reviewSection">
+      <h2>PLEASE REVIEW tHIS INFORMATION</h2>
+
+      <p><span id="r_name"></span></p>
+      <p><span id="r_dob"></span></p>
+      <p><span id="r_email"></span></p>
+      <p><span id="r_phone"></span></p>
+      <p><span id="r_address"></span></p>
   </div>
 
   <!--Footer -->
