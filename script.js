@@ -21,13 +21,13 @@ let mi = document.getElementById("middleinitial").value;
 let last = document.getElementById("lastname").value;
 let dob = document.getElementById("dob").value;
 
-let email = document.getElementsByName("email")[0].value;
-let phone = document.getElementsByName("phone")[0].value;
+let email = document.querySelector('[name="email"]').value;
+let phone = document.querySelector('[name="phone"]').value;
 
-let address1 = document.getElementsByName("address1")[0].value;
-let city = document.getElementsByName("city")[0].value;
-let state = document.getElementsByName("state")[0].value;
-let zip = document.getElementsByName("zip")[0].value;
+let address1 = document.querySelector('[name="address1"]').value;
+let city = document.querySelector('[name="city"]').value;
+let state = document.querySelector('[name="state"]').value;
+let zip = document.querySelector('[name="zip"]').value;
 
 document.getElementById("r_name").innerText = "Name: " +  first + " " + mi + "  " + last;
 
