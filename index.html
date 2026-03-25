@@ -205,7 +205,8 @@ Description:  basic Patient registration form (BETA)
               name="zip"
               maxlength="10"
               placeholder="77002"
-              pattern="[0-9\-]{5,10}"
+              pattern="\d{5}(-\d{4})?"
+              title="5 digit zip or zip+4"
               required>
           </td>
         </tr>
