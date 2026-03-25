@@ -62,20 +62,33 @@ document.querySelectorAll('[name="history"]:checked').forEach(item =>
   let confirmPassword = document.querySelector('[name="confirm_password"]').value;
 
   //PASSWORD CHECK
-  let passwordStatus = (password === confirmPassword)
-  ? "✅ PASS"
-  : "❌ ERROR: password does not match";
-
+  let passwordStatus;
+  if(!password || !confirmPassword)
+  {
+    passwordStatus = "❌ ERROR: Password Required";
+  }
+  else if (password !==confirmPassword)
+  {
+    passwordStatus = "❌ ERROR: Password does not match";
+  }
+    else
+  {
+    passwordStatus = "✅ PASS";
+  }
+  
   //DOB Validation
   let dobStatus = "✅ PASS";
   let today = new Date();
   let enteredDOB = new Date(dob);
-
-  if (enteredDOB > today)
+  if(!dob || isNaN(enteredDOB))
+  {
+    dobStatus = "❌ ERROR: Invalid date";
+  }
+  else if (enteredDOB > today) 
   {
     dobStatus = "❌ ERROR: Cannot be in the future";
   }
-
+  
   //Name
   let nameStatus = (first && last)
   ? "✅ PASS"
