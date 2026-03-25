@@ -76,6 +76,62 @@ document.querySelectorAll('[name="history"]:checked').forEach(item =>
     dobStatus = "❌ ERROR: Cannot be in the future";
   }
 
+  //Name
+  let nameStatus = (first && last)
+  ? "✅ PASS"
+  : "❌ ERROR: Missing name";
+
+  //Email
+  let emailStatus = email
+  ? "✅ PASS"
+  : "❌ ERROR";
+
+  //Phone
+  let phoneStatus = phone
+  ? "✅ PASS"
+  : "❌ ERROR";
+
+  //Address
+  let addressStatus = (address1 && city && state && zip)
+  ? "✅ PASS"
+  : "❌ ERROR: Incomplete";
+
+  //SSN
+  let ssnStatus = ssn
+  ? "✅ PASS"
+  : "❌ ERROR";
+
+  //Slider
+  let healthStatus = health
+  ? "✅ PASS"
+  : "❌ ERROR";
+
+  //Checkboxes
+  let historyStatus = history.length > 0
+  ? "✅ PASS"
+  : "❌ ERROR: None selected";
+
+  //Radio
+  let genderStatus = gender !== "Not Selected"
+  ? "✅ PASS"
+  : "❌ ERROR";
+
+  let vaccinatedStatus = vaccinated !== "Not Selected"
+  ? "✅ PASS"
+  : "❌ ERROR";
+
+  let insuranceStatus = insurance !== "Not Selected"
+  ? "✅ PASS"
+  : "❌ ERROR";
+
+  //TextArea
+  let symptomsStatus = "✅ PASS";
+
+  //User ID
+  let userIdStatus = userId
+  ? "✅ PASS"
+  : "❌ ERROR";
+  
   //USING JAVASCRIPT TO PORTRAY HTML CODE ON PAGE
   let output = `
   <table border="1" cellpadding="8">
@@ -84,7 +140,7 @@ document.querySelectorAll('[name="history"]:checked').forEach(item =>
   <tr>
   <td>Name</td>
   <td>${first} ${mi} ${last}</td>
-  <td>✅ PASS</td>
+  <td>${nameStatus}</td>
   </tr>
 
   <tr>
@@ -96,67 +152,67 @@ document.querySelectorAll('[name="history"]:checked').forEach(item =>
   <tr>
   <td>SSN</td>
   <td>***-**-${ssn.slice(-4)}</td>
-  <td>✅ PASS</td>
+  <td>${ssnStatus}</td>
   </tr>
 
   <tr>
   <td>Email</td>
   <td>${email}</td>
-  <td>✅ PASS</td>
+  <td>${emailStatus}</td>
   </tr>
 
   <tr>
   <td>Phone</td>
   <td>${phone}</td>
-  <td>✅ PASS</td>
+  <td>${phoneStatus}</td>
   </tr>
 
   <tr>
   <td>Address</td>
   <td>${address1}${address2 ? ", " + address2 : ""}, ${city}, ${state} ${zip}</td>
-  <td>✅ PASS</td>
+  <td>${addressStatus}</td>
   </tr>
 
   <tr>
   <td>Health Rating</td>
   <td>${health}</td>
-  <td>✅ PASS</td>
+  <td>${healthStatus}</td>
   </tr>
 
   <tr>
   <td>Medical History</td>
   <td>${history.join(", ") || "None Selected"}</td>
-  <td>✅ PASS</td>
+  <td>${historyStatus}</td>
   </tr>
 
   <tr>
   <td>Gender</td>
   <td>${gender}</td>
-  <td>✅ PASS</td>
+  <td>${genderStatus}</td>
   </tr>
 
   <tr>
   <td>Vaccinated</td>
   <td>${vaccinated}</td>
-  <td>✅ PASS</td>
+  <td>${vaccinatedStatus}</td>
   </tr>
 
   <tr>
   <td>Insurance</td>
   <td>${insurance}</td>
-  <td>✅ PASS</td>
+  <td>${insuranceStatus}</td>
   </tr>
 
   <tr>
   <td>Symptoms</td>
   <td>${symptoms || "None Provided"}</td>
-  <td>✅ PASS</td>
+  <td>${symptomsStatus}</td>
   </tr>
 
   <tr>
   <td>User ID</td>
   <td>${userId}</td>
-  <td>✅ PASS</td>
+  <td>${userIdStatus}</td>
   </tr>
 
   <tr>
