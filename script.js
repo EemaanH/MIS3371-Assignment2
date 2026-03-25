@@ -77,18 +77,25 @@ document.querySelectorAll('[name="history"]:checked').forEach(item =>
   }
   
   //DOB Validation
-  let dobStatus = "✅ PASS";
-  let today = new Date();
+  let dobStatus;
   let enteredDOB = new Date(dob);
-  if(!dob || isNaN(enteredDOB))
+  let currentDate = new Date();
+  if(!dob)
   {
     dobStatus = "❌ ERROR: Invalid date";
   }
-  else if (enteredDOB > today) 
+  else if (isNaN(enteredDOB))
+  {
+    dobStatus = "❌ ERROR: Invalid date";
+  }
+  else if (enteredDOB > currentDate)
   {
     dobStatus = "❌ ERROR: Cannot be in the future";
   }
-  
+  else
+  {
+    dobStatus = "✅ PASS";
+  }
   //Name
   let nameStatus = (first && last)
   ? "✅ PASS"
