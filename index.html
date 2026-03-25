@@ -33,7 +33,7 @@ Description:  basic Patient registration form (BETA)
       <table>
 
   <!--NAME ROW -->
-
+  <!-- new pattern and Title -->
         <tr>
         <td align="right">
         <label for="firstname">First Name</label>
@@ -42,6 +42,8 @@ Description:  basic Patient registration form (BETA)
         <input type="text" size="25" maxlength="30" 
             id="firstname" name="firstname"
             placeholder="(John/Jane)"
+            pattern="[A-Za-z'-]{1,30}"
+            title="1-30 letters, apostrophes or dashes only"
             required>
         </td>
 
@@ -50,7 +52,9 @@ Description:  basic Patient registration form (BETA)
         </td>
         <td>
           <input type="text" size="1" maxlength="1" 
-            id="middleinitial" name="middleinitial">
+            id="middleinitial" name="middleinitial"
+            pattern="[A-Za-z]{1}"
+            title="Single letter only">
         </td> 
 
         <td align="right">
@@ -60,6 +64,8 @@ Description:  basic Patient registration form (BETA)
         <input type="text" size="25" maxlength="30" 
             id="lastname" name="lastname"
             placeholder="Doe"
+            pattern="[A-Za-z0-9'-]{1,30}"
+            title="1-30 characters, letters, apostrophes, dashes, numbers allowed"
             required>
         </td>
         </tr>
@@ -73,6 +79,7 @@ Description:  basic Patient registration form (BETA)
             id="dob" name="dob" 
             placeholder="MM/DD/YYYY"
             pattern="\d{2}/\d{2}/\d{4}"
+            title="Format: MM/DD/YYYY"
             required>
            </td>
           
@@ -98,6 +105,8 @@ Description:  basic Patient registration form (BETA)
              maxlength="30" 
              size="40"
              placeholder="123 Main Street"
+             pattern=".{2,30}"
+              title="2-30 characters"
              required>
           </td>
           </tr>
@@ -120,6 +129,8 @@ Description:  basic Patient registration form (BETA)
               name="city"
               maxlength="30"
               placeholder="Houston"
+              pattern=".{2,30}"
+              title="2-30 characters"
               required>
           </td>
 
@@ -207,6 +218,8 @@ Description:  basic Patient registration form (BETA)
               size="25"
               maxlength="50"
               placeholder="name@gmail.com"
+              pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$"
+              title="Enter a valid email like name@domain.com"
               required>
             </td>
         </tr>
@@ -319,6 +332,8 @@ Description:  basic Patient registration form (BETA)
               name="userid"
               maxlength="20"
               placeholder="Choose a username"
+              pattern="^[A-Za-z][A-Za-z0-9_-]{4,29}$"
+              title="5-30 characters, must start with a letter, no spaces"
               required>
           </td>
         </tr>
@@ -330,6 +345,8 @@ Description:  basic Patient registration form (BETA)
               name="password"
               maxlength="20"
               placeholder="Enter password"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#%^&*()\-_=+\\/><.,`~])[A-Za-z\d!@#%^&*()\-_=+\\/><.,`~]{8,30}$"
+              title="8-30 chars, include uppercase, lowercase, number, special character"
               required>
           </td>
         </tr>
