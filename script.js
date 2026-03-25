@@ -16,27 +16,160 @@ document.getElementById("todayDate").innerHTML =
 
 function reviewData() 
 {
-  
+
+// NAME + DOB + SSN
 let first = document.getElementById("firstname").value;
 let mi = document.getElementById("middleinitial").value;
 let last = document.getElementById("lastname").value;
 let dob = document.getElementById("dob").value;
+let ssn = document.querySelector('[name="ssn"]').value;
 
+//CONTACT INFO
 let email = document.querySelector('[name="email"]').value;
 let phone = document.querySelector('[name="phone"]').value;
 
+//ADDRESS
 let address1 = document.querySelector('[name="address1"]').value;
+let address2 = document.querySelector('[name="address2"]').value;
 let city = document.querySelector('[name="city"]').value;
 let state = document.querySelector('[name="state"]').value;
 let zip = document.querySelector('[name="zip"]').value;
 
-document.getElementById("r_name").innerText = "Name: " +  first + " " + mi + "  " + last;
+//SLIDER
+let health = document.querySelector('[name="health_rating"]').value;
 
-document.getElementById("r_dob").innerText = "DOB: " + dob;
+//TEXTAREA
+let symptoms= document.querySelector('[name="symptoms"]').value;
 
-document.getElementById("r_email").innerText = "Email: " + email;
+//CHECKBOXES
+let history = [];
+document.querySelectorAll('[name="history"]:checked').forEach(item =>
+  {
+    history.push(item.value);
+  });
 
-document.getElementById("r_phone").innerText = "Phone: " + phone;
+//RADIO BUTTONS
+  let gender = document.querySelector('[name="gender"]:checked')?.value || "Not Selected";
+  let vaccinated = document.querySelector('[name="vaccinated"]:checked')?.value || "Not Selected";
+  let insurance = document.querySelector('[name="insurance"]:checked')?.value || "Not Selected";
 
-document.getElementById("r_address").innerText = "Address: " + address1 + ",  " + city + ",  " + state + " "  + zip;
+  //USER + PASSWORD
+  let userIdInput = document.querySelector('[name="userid"]');
+  let userId = userIdInput.value.toLowerCase();
+  userIdInput.value = userId;
+
+  let password = document.querySelector('[name="password"]').value;
+  let confirmPassword = document.querySelector('[name="confirm_password"]').value;
+
+  //PASSWORD CHECK
+  let passwordStatus = (password === confirmPassword)
+  ? "✅ PASS"
+  : "❌ ERROR: password does not match";
+
+  //DOB Validation
+  let dobStatus = "✅ PASS";
+  let today = new Date();
+  let enteredDOB = new Date(dob);
+
+  if (enteredDOB > today)
+  {
+    dobStatus = "❌ ERROR: Cannot be in the future";
+  }
+
+  //USING JAVASCRIPT TO PORTRAY HTML CODE ON PAGE
+  let output = `
+  <table border="1" cellpadding="8">
+  <tr><th>Field</th><th>Value</th><th>Status</th></tr>
+
+  <tr>
+  <td>Name</td>
+  <td>${first} ${mi} ${last}</td>
+  <td>✅ PASS</td>
+  </tr>
+
+  <tr>
+  <td>Date of Birth</td>
+  <td>${dob}</td>
+  <td>${dobStatus}</td>
+  </tr>
+
+  <tr>
+  <td>SSN</td>
+  <td>***-**-${ssn.slice(-4)}</td>
+  <td>✅ PASS</td>
+  </tr>
+
+  <tr>
+  <td>Email</td>
+  <td>${email}</td>
+  <td>✅ PASS</td>
+  </tr>
+
+  <tr>
+  <td>Phone</td>
+  <td>${phone}</td>
+  <td>✅ PASS</td>
+  </tr>
+
+  <tr>
+  <td>Address</td>
+  <td>${address1}${address2 ? ", " + address2 : ""}, ${city}, ${state} ${zip}</td>
+  <td>✅ PASS</td>
+  </tr>
+
+  <tr>
+  <td>Health Rating</td>
+  <td>${health}</td>
+  <td>✅ PASS</td>
+  </tr>
+
+  <tr>
+  <td>Medical History</td>
+  <td>${history.join(", ") || "None Selected"}</td>
+  <td>✅ PASS</td>
+  </tr>
+
+  <tr>
+  <td>Gender</td>
+  <td>${gender}</td>
+  <td>✅ PASS</td>
+  </tr>
+
+  <tr>
+  <td>Vaccinated</td>
+  <td>${vaccinated}</td>
+  <td>✅ PASS</td>
+  </tr>
+
+  <tr>
+  <td>Insurance</td>
+  <td>${insurance}</td>
+  <td>✅ PASS</td>
+  </tr>
+
+  <tr>
+  <td>Symptoms</td>
+  <td>${symptoms || "None Provided"}</td>
+  <td>✅ PASS</td>
+  </tr>
+
+  <tr>
+  <td>User ID</td>
+  <td>${userId}</td>
+  <td>✅ PASS</td>
+  </tr>
+
+  <tr>
+  <td>Password Check</td>
+  <td>********</td>
+  <td>${passwordStatus}</td>
+  </tr>
+
+  </table>
+  `;
+
+document.getElementById("reviewSection").innerHTML = `
+<h2>PLEASE REVIEW THIS INFORMATION</h2>
+${output}
+`;
 }
