@@ -63,7 +63,7 @@ document.querySelectorAll('[name="history"]:checked').forEach(item =>
 
   //PASSWORD CHECK
   let passwordStatus;
-  if(!password || !confirmPassword)
+  if(!password.trim() || !confirmPassword.trim())
   {
     passwordStatus = "❌ ERROR: Password Required";
   }
@@ -80,9 +80,9 @@ document.querySelectorAll('[name="history"]:checked').forEach(item =>
   let dobStatus;
   let enteredDOB = new Date(dob);
   let currentDate = new Date();
-  if(!dob)
+  if(!dob.trim())
   {
-    dobStatus = "❌ ERROR: Invalid date";
+    dobStatus = "❌ ERROR: Date required";
   }
   else if (isNaN(enteredDOB))
   {
@@ -96,6 +96,7 @@ document.querySelectorAll('[name="history"]:checked').forEach(item =>
   {
     dobStatus = "✅ PASS";
   }
+  
   //Name
   let nameStatus = (first && last)
   ? "✅ PASS"
