@@ -71,6 +71,10 @@ document.querySelectorAll('[name="history"]:checked').forEach(item =>
   {
     passwordStatus = "❌ ERROR: Password does not match";
   }
+    else if (password.toLowerCase().includes(userId))
+  {
+    passwordStatus = "❌ ERROR: Cannot contain User ID";
+  }
     else
   {
     passwordStatus = "✅ PASS";
@@ -80,6 +84,9 @@ document.querySelectorAll('[name="history"]:checked').forEach(item =>
   let dobStatus;
   let enteredDOB = new Date(dob);
   let currentDate = new Date();
+  let oldestDate = new Date();
+  oldestDate.setFullYear(currentDate.getFullYear() - 120);
+  
   if(!dob.trim())
   {
     dobStatus = "❌ ERROR: Date required";
@@ -92,6 +99,10 @@ document.querySelectorAll('[name="history"]:checked').forEach(item =>
   {
     dobStatus = "❌ ERROR: Cannot be in the future";
   }
+    else if (enteredDOB < oldestDate)
+  {
+    dobStatus ="❌ ERROR: More than 120 years ago";
+  }
   else
   {
     dobStatus = "✅ PASS";
@@ -103,12 +114,12 @@ document.querySelectorAll('[name="history"]:checked').forEach(item =>
   : "❌ ERROR: Missing name";
 
   //Email
-  let emailStatus = email
+  let emailStatus = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)
   ? "✅ PASS"
   : "❌ ERROR";
 
   //Phone
-  let phoneStatus = phone
+  let phoneStatus = /^\d{3}-\d{3}-\d{4}$/.test(phone)
   ? "✅ PASS"
   : "❌ ERROR";
 
@@ -117,8 +128,12 @@ document.querySelectorAll('[name="history"]:checked').forEach(item =>
   ? "✅ PASS"
   : "❌ ERROR: Incomplete";
 
+  let address2Status = (!address2 || address2.length >= 2)
+  ? "✅ PASS"
+  : "❌ ERROR";
+
   //SSN
-  let ssnStatus = ssn
+  let ssnStatus = /^\d{3}-\d{2}-\d{4}$/.test(ssn)
   ? "✅ PASS"
   : "❌ ERROR";
 
